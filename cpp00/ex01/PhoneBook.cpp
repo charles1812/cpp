@@ -65,8 +65,8 @@ void	PhoneBook::search_contact() {
 		name = this->array[i].getName();
 		last = this->array[i].getLast();
 		nick = this->array[i].getNick();
-		phone = this->array[i].getPhone();
-		secret = this->array[i].getSecret();
+		//phone = this->array[i].getPhone();
+		//secret = this->array[i].getSecret();
 		if (name.length() > 9)
 			name = name.substr(0, 9) + ".";
 		if (last.length() > 9)
