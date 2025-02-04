@@ -18,6 +18,7 @@ int	main(int ac, char **av) {
 	if (ac != 4) {
 		std::cout << "Usage : ./replace file_in string1 string2"; return 0;
 	}
+
 	
 	str				in_file = av[1];
 	str				first = av[2];

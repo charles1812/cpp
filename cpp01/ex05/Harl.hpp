@@ -1,26 +1,23 @@
 #ifndef HARL_HPP
-# define HARL_HPP
+#define HARL_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 
 typedef std::string str;
 
 class Harl {
-    private:
-        int lvl;
+	public:
+		Harl();
+		~Harl();
 
-        void debug(void);
-        void info(void);
-        void warning(void);
-        void error(void);
+		void	complain(str level);
 
-    public:
-        Harl();
-        ~Harl();
-
-        void complain(str level);
-
-}
+	private:
+		void	debug() const;
+		void	info() const;
+		void	warning() const;
+		void	error() const;
+};
 
 #endif

@@ -1,23 +1,23 @@
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
-#include <iostream>
 #include <string>
+#include <iostream>
 
 typedef std::string str;
 
 class Zombie {
-public:
-    Zombie();
-    ~Zombie();
+	public:
+		Zombie();
+		~Zombie();
 
-    void    announce();
-    void    setName(str name);
+		void			setName(str name);
+		void			announce() const;
 
-private:
-    str name;
+	private:
+		str		name;
 };
 
-Zombie *zombieHorde( int n, str name);
+Zombie	*zombieHorde(int n, str name);
 
 #endif

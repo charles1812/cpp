@@ -3,8 +3,8 @@
 
 typedef std::string str;
 
-int main() {
-    str	string = "HI THIS IS BRAIN";
+int	main() {
+	str	string = "HI THIS IS BRAIN";
 	str	*stringPTR = &string;
 	str	&stringREF = string;
 
