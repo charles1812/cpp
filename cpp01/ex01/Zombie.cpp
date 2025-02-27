@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cspreafi <cspreafi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/05 22:45:13 by cspreafi          #+#    #+#             */
+/*   Updated: 2025/02/06 02:24:20 by cspreafi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 Zombie::Zombie() {
-	std::cout << "Be careful ! a new zombie is in the house !" << std::endl;
 }
 
 Zombie::~Zombie() {
-	std::cout << "A zombie died a second time." << std::endl;
+	std::cout << this->name << ": died" << std::endl;
 }
 
 void	Zombie::announce() const {

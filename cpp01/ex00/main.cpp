@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cspreafi <cspreafi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/05 22:44:23 by cspreafi          #+#    #+#             */
+/*   Updated: 2025/02/06 01:05:56 by cspreafi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 int	main() {
 	Zombie	*z = NULL;
 
-	z = z->newZombie("leM");
-	z->randomChump("leB");
+	z = z->newZombie("newZombie");
+	z->randomChump("randomChump");
 	delete z;
 }
