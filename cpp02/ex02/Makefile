@@ -1,18 +1,28 @@
-SRC= $(wildcard *.cpp)
-NAME= canon
-OBJ= $(SRC:.cpp=.o)
+NAME = canon
+
+CXX = c++
+
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 \
+            -Wpedantic
+
+SRCS = $(wildcard *.cpp)
+
+OBJS = $(SRCS:.cpp=.o)
+
+.PHONY: all clean fclean re san
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
-
 clean:
-	rm -rf $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+san: CXXFLAGS += -g -O0 -fsanitize=address,undefined,float-divide-by-zero,float-cast-overflow,signed-integer-overflow,shift,bounds,null,alignment,vla-bound,return
+san: re

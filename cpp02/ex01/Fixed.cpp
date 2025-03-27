@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cspreafi <cspreafi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 00:27:59 by cspreafi          #+#    #+#             */
+/*   Updated: 2025/03/27 01:51:47 by cspreafi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 #include <math.h>
 
@@ -5,19 +17,19 @@ Fixed::Fixed() : value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const &src) {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
-}
-
 Fixed::Fixed(const int n) {
 	std::cout << "Int constructor called" << std::endl;
 	this->value = n << bits;
 }
 
-Fixed::Fixed(const float f) : value(f) {
+Fixed::Fixed(const float f) {
 	std::cout << "Float constructor called" << std::endl;
 	this->value = roundf(f * (1 << bits));
+}
+
+Fixed::Fixed(Fixed const &src) {
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
 }
 
 Fixed::~Fixed() {
@@ -27,7 +39,7 @@ Fixed::~Fixed() {
 Fixed&	Fixed::operator=(Fixed const &rSym) {
 	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &rSym)
-		this->value = rSym.getRawBits();
+		this->value = rSym.value;
 	return *this;
 }
 
@@ -41,7 +53,7 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat() const {
-	return (float)this->value / (float)(1 << bits);
+	return (float)this->value / (1 << bits);
 }
 
 int		Fixed::toInt() const {
