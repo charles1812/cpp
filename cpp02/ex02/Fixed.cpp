@@ -6,14 +6,15 @@
 /*   By: cspreafi <cspreafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:27:41 by cspreafi          #+#    #+#             */
-/*   Updated: 2025/03/27 01:51:35 by cspreafi         ###   ########.fr       */
+/*   Updated: 2025/04/02 21:49:57 by cspreafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <math.h>
 
-Fixed::Fixed() : value(0) {}
+Fixed::Fixed() : value(0) {
+}
 
 Fixed::Fixed(Fixed const &src) {
 	*this = src;
@@ -36,6 +37,52 @@ Fixed&	Fixed::operator=(Fixed const &rSym) {
 	return *this;
 }
 
+std::ostream&	operator<<(std::ostream& o, Fixed const &rSym) {
+	o << rSym.toFloat();
+	return o;
+}
+
+/* comparison operators */
+
+bool	Fixed::operator>(Fixed const &rSym) const {
+	if (this->getRawBits() > rSym.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator<(Fixed const &rSym) const {
+	if (this->getRawBits() < rSym.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator>=(Fixed const &rSym) const {
+	if (this->getRawBits() >= rSym.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator<=(Fixed const &rSym) const {
+	if (this->getRawBits() <= rSym.getRawBits())
+		return true;
+	return false;
+}
+
+
+bool	Fixed::operator==(Fixed const &rSym) const {
+	if (this->getRawBits() == rSym.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator!=(Fixed const &rSym) const {
+	if (this->getRawBits() != rSym.getRawBits())
+		return true;
+	return false;
+}
+
+/* arithmetic operators */
+
 Fixed	Fixed::operator+(Fixed const &rSym) const {
 	return Fixed(this->toFloat() + rSym.toFloat());
 }
@@ -52,41 +99,7 @@ Fixed	Fixed::operator/(Fixed const &rSym) const {
 	return Fixed(this->toFloat() / rSym.toFloat());
 }
 
-bool	Fixed::operator<(Fixed const &rSym) const {
-	if (this->getRawBits() < rSym.getRawBits())
-		return true;
-	return false;
-}
-
-bool	Fixed::operator>(Fixed const &rSym) const {
-	if (this->getRawBits() > rSym.getRawBits())
-		return true;
-	return false;
-}
-
-bool	Fixed::operator<=(Fixed const &rSym) const {
-	if (this->getRawBits() <= rSym.getRawBits())
-		return true;
-	return false;
-}
-
-bool	Fixed::operator>=(Fixed const &rSym) const {
-	if (this->getRawBits() >= rSym.getRawBits())
-		return true;
-	return false;
-}
-
-bool	Fixed::operator==(Fixed const &rSym) const {
-	if (this->getRawBits() == rSym.getRawBits())
-		return true;
-	return false;
-}
-
-bool	Fixed::operator!=(Fixed const &rSym) const {
-	if (this->getRawBits() != rSym.getRawBits())
-		return true;
-	return false;
-}
+/* incrementation operators */
 
 Fixed&	Fixed::operator++() {
 	this->value++;
@@ -112,6 +125,7 @@ Fixed	Fixed::operator--(int) {
 	return tmp;
 }
 
+
 int		Fixed::getRawBits() const {
 	return this->value;
 }
@@ -128,31 +142,27 @@ int		Fixed::toInt() const {
 	return this->value >> bits;
 }
 
-Fixed &	Fixed::min(Fixed &a, Fixed &b) {
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
 	if (a < b)
 		return a;
 	return b;
 }
 
-Fixed const &	Fixed::min(Fixed const &a, Fixed const &b) {
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b) {
 	if (a < b)
 		return a;
 	return b;
 }
 
-Fixed &	Fixed::max(Fixed &a, Fixed &b) {
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
 	if (a > b)
 		return a;
 	return b;
 }
 
-Fixed const &	Fixed::max(Fixed const &a, Fixed const &b) {
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b) {
 	if (a > b)
 		return a;
 	return b;
 }
 
-std::ostream&	operator<<(std::ostream& o, Fixed const &rSym) {
-	o << rSym.toFloat();
-	return o;
-}

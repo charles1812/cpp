@@ -14,7 +14,7 @@ void	PhoneBook::add_contact() {
 	str	secret;
 
 	system("clear");
-	if (this->current_nb == 8)
+	if (this->current_nb == max_contacts)
 		this->current_nb = 0;
 	system("clear");
 	std::cout << "Type a name : ";

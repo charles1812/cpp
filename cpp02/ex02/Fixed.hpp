@@ -6,14 +6,14 @@
 /*   By: cspreafi <cspreafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:27:45 by cspreafi          #+#    #+#             */
-/*   Updated: 2025/03/27 01:51:38 by cspreafi         ###   ########.fr       */
+/*   Updated: 2025/04/02 22:00:22 by cspreafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FIXED_HPP_
-#define _FIXED_HPP_
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-#include <iostream>
+# include <iostream>
 
 class Fixed {
 	public:

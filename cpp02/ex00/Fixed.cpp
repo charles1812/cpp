@@ -6,7 +6,7 @@
 /*   By: cspreafi <cspreafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:28:13 by cspreafi          #+#    #+#             */
-/*   Updated: 2025/03/27 01:51:54 by cspreafi         ###   ########.fr       */
+/*   Updated: 2025/04/02 21:51:45 by cspreafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Fixed::Fixed(Fixed const &src) {
 	this->nb = src.getRawBits();
 }
 
-Fixed&	Fixed::operator=(Fixed const &rSym) {
+Fixed&	Fixed::operator=(Fixed const &src) {
 	std::cout << "Copy assignement operator called" << std::endl;
-	this->nb = rSym.getRawBits();
+	this->nb = src.getRawBits();
 	return *this;
 }
 
